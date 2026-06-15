@@ -1,1 +1,433 @@
-<title>"Hello!!!!!"</title>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Personal website for Jaewoong Yoon with profile, projects, contact links, and CV."
+    >
+    <title>Jaewoong Yoon | Personal Website</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f7f5ef;
+        --surface: #ffffff;
+        --ink: #202124;
+        --muted: #5f6368;
+        --line: #d9d4c8;
+        --accent: #0b6b57;
+        --accent-strong: #064c3e;
+        --focus: #b35321;
+        --shadow: 0 16px 40px rgba(32, 33, 36, 0.1);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+      }
+
+      a {
+        color: var(--accent-strong);
+        text-underline-offset: 0.2em;
+      }
+
+      a:hover {
+        color: var(--focus);
+      }
+
+      a:focus-visible,
+      button:focus-visible {
+        outline: 3px solid var(--focus);
+        outline-offset: 4px;
+      }
+
+      .skip-link {
+        position: absolute;
+        left: 1rem;
+        top: 1rem;
+        z-index: 10;
+        transform: translateY(-150%);
+        background: var(--ink);
+        color: #ffffff;
+        padding: 0.65rem 0.9rem;
+        border-radius: 6px;
+      }
+
+      .skip-link:focus {
+        transform: translateY(0);
+      }
+
+      .site-header {
+        border-bottom: 1px solid var(--line);
+        background: rgba(247, 245, 239, 0.94);
+      }
+
+      .nav {
+        width: min(1120px, calc(100% - 2rem));
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1rem 0;
+      }
+
+      .brand {
+        color: var(--ink);
+        font-weight: 800;
+        letter-spacing: 0;
+        text-decoration: none;
+      }
+
+      .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 0.45rem 1rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .nav-links a {
+        color: var(--muted);
+        font-size: 0.95rem;
+        font-weight: 650;
+        text-decoration: none;
+      }
+
+      .nav-links a:hover {
+        color: var(--accent-strong);
+      }
+
+      main {
+        width: min(1120px, calc(100% - 2rem));
+        margin: 0 auto;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(240px, 360px);
+        gap: clamp(2rem, 5vw, 5rem);
+        align-items: center;
+        min-height: 72vh;
+        padding: clamp(3.5rem, 7vw, 6rem) 0;
+      }
+
+      .eyebrow {
+        margin: 0 0 0.65rem;
+        color: var(--accent-strong);
+        font-size: 0.85rem;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        max-width: 11ch;
+        margin-bottom: 1rem;
+        font-size: clamp(2.75rem, 10vw, 6.2rem);
+        line-height: 0.95;
+        letter-spacing: 0;
+      }
+
+      h2 {
+        margin-bottom: 0.75rem;
+        font-size: clamp(1.6rem, 4vw, 2.45rem);
+        line-height: 1.1;
+        letter-spacing: 0;
+      }
+
+      h3 {
+        margin-bottom: 0.35rem;
+        font-size: 1.05rem;
+        line-height: 1.35;
+      }
+
+      .lead {
+        max-width: 62ch;
+        color: var(--muted);
+        font-size: clamp(1.05rem, 2vw, 1.25rem);
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.85rem;
+        margin-top: 1.75rem;
+      }
+
+      .button {
+        display: inline-flex;
+        min-height: 2.8rem;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--accent);
+        border-radius: 6px;
+        padding: 0.68rem 1rem;
+        background: var(--accent);
+        color: #ffffff;
+        font-weight: 750;
+        line-height: 1.2;
+        text-decoration: none;
+      }
+
+      .button:hover {
+        background: var(--accent-strong);
+        color: #ffffff;
+      }
+
+      .button.secondary {
+        background: transparent;
+        color: var(--accent-strong);
+      }
+
+      .button.secondary:hover {
+        border-color: var(--focus);
+        color: var(--focus);
+      }
+
+      .portrait-wrap {
+        justify-self: center;
+        width: min(100%, 360px);
+      }
+
+      .portrait {
+        display: block;
+        width: 100%;
+        aspect-ratio: 1;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        object-fit: cover;
+        box-shadow: var(--shadow);
+      }
+
+      .section {
+        padding: clamp(2.5rem, 6vw, 4.5rem) 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .section-grid {
+        display: grid;
+        grid-template-columns: minmax(180px, 0.45fr) minmax(0, 1fr);
+        gap: clamp(1.25rem, 5vw, 4rem);
+      }
+
+      .section-intro {
+        color: var(--muted);
+      }
+
+      .stack {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .item-list {
+        display: grid;
+        gap: 1rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .item {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--surface);
+        padding: 1rem;
+      }
+
+      .item p {
+        margin-bottom: 0;
+        color: var(--muted);
+      }
+
+      .link-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem 1.2rem;
+      }
+
+      .site-footer {
+        width: min(1120px, calc(100% - 2rem));
+        margin: 0 auto;
+        padding: 2rem 0 3rem;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      @media (max-width: 780px) {
+        .nav {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .nav-links {
+          justify-content: flex-start;
+        }
+
+        .hero,
+        .section-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          min-height: auto;
+          padding-top: 2.5rem;
+        }
+
+        .portrait-wrap {
+          justify-self: start;
+          width: min(100%, 300px);
+          order: -1;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="#main" aria-label="Jaewoong Yoon home">Jaewoong Yoon</a>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#cv">CV</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="intro-title">
+        <div>
+          <p class="eyebrow">Personal Website</p>
+          <h1 id="intro-title">Jaewoong Yoon</h1>
+          <p class="lead">
+            A simple home for my profile, selected work, and CV. I am interested
+            in building clear, useful software and learning in public.
+          </p>
+          <div class="actions" aria-label="Primary links">
+            <a class="button" href="assets/cv.pdf">View CV</a>
+            <a class="button secondary" href="https://github.com/YoonJaewoong13">GitHub</a>
+          </div>
+        </div>
+        <div class="portrait-wrap">
+          <img
+            class="portrait"
+            src="assets/profile.jpg"
+            alt="Portrait of Jaewoong Yoon"
+            width="554"
+            height="554"
+          >
+        </div>
+      </section>
+
+      <section class="section" id="about" aria-labelledby="about-title">
+        <div class="section-grid">
+          <div>
+            <h2 id="about-title">About</h2>
+            <p class="section-intro">Background and focus</p>
+          </div>
+          <div class="stack">
+            <p>
+              I use this site as a concise profile and portfolio. It is designed
+              to stay lightweight, readable, and easy to maintain on GitHub Pages.
+            </p>
+            <p>
+              Update this section with your current role, research interests,
+              technical focus, or the kind of work you want visitors to notice.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="work" aria-labelledby="work-title">
+        <div class="section-grid">
+          <div>
+            <h2 id="work-title">Work</h2>
+            <p class="section-intro">Selected highlights</p>
+          </div>
+          <ul class="item-list">
+            <li class="item">
+              <h3>Project or research highlight</h3>
+              <p>
+                Add one short sentence about a project, paper, internship, or
+                class work that shows what you can do.
+              </p>
+            </li>
+            <li class="item">
+              <h3>Technical focus</h3>
+              <p>
+                List the tools, topics, or systems you are currently learning or
+                using most often.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="cv" aria-labelledby="cv-title">
+        <div class="section-grid">
+          <div>
+            <h2 id="cv-title">CV</h2>
+            <p class="section-intro">Resume and details</p>
+          </div>
+          <div class="stack">
+            <p>
+              My CV is available as a PDF and can be opened or downloaded from
+              the link below.
+            </p>
+            <p>
+              <a class="button" href="assets/cv.pdf">Open CV PDF</a>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contact" aria-labelledby="contact-title">
+        <div class="section-grid">
+          <div>
+            <h2 id="contact-title">Contact</h2>
+            <p class="section-intro">Places to connect</p>
+          </div>
+          <div class="link-row">
+            <a href="https://github.com/YoonJaewoong13">GitHub</a>
+            <a href="assets/cv.pdf">CV PDF</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; 2026 Jaewoong Yoon. Built as a static GitHub Pages site.</p>
+    </footer>
+  </body>
+</html>
